@@ -19,16 +19,16 @@ const Modal = ({closeModal, children}) => {
   // }
 
   useEffect (() => {
-    window.addEventListener('keydown', hendelKeyDown);
+    window.addEventListener('keydown', handelKeyClose);
     return () => {
-      window.removeEventListener('keydown', hendelKeyDown);
+      window.removeEventListener('keydown', handelKeyClose);
     }
   }, [])
 
 
 
 
-  const hendelKeyDown = e => {
+  const handelKeyClose = e => {
     if (e.code === 'Escape') {
       closeModal();
     }
@@ -36,14 +36,14 @@ const Modal = ({closeModal, children}) => {
 
 
 
-  const hendelBecdropClick = e => {
+  const handelBecdropClose = e => {
     if (e.currentTarget === e.target) {
       closeModal();
     }
   };
 
     return createPortal(
-      <div className={styles.Overlay} onClick={hendelBecdropClick}>
+      <div className={styles.Overlay} onClick={handelBecdropClose}>
     <div className={styles.Modal}>
       {children}
     </div>
